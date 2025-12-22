@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Results</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --bg:#f3f7ff;
+      --card-bg:#ffffff;
+      --accent:#001246;
+      --muted:#5b6b89;
+      --pill-red:#9f3f3f;
+      --pill-green:#4f8350;
+      --shadow: 0 10px 30px rgba(18,35,75,0.06);
+    }
+
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--accent);
+      background: linear-gradient(180deg, #f6f9ff 0%, #eef4ff 100%);
+      min-height:100vh;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .page {
+      max-width:1200px;
+      margin: 40px auto;
+      padding: 40px 32px;
+      position:relative;
+      box-sizing:border-box;
+    }
+
+    .decor {
+      position: absolute;
+      right: 0;
+      top: 10%;
+      width: 420px;
+      opacity: 0.08;
+      pointer-events:none;
+    }
+
+    header h1{
+      margin: 0 0 30px 0;
+      font-size: 44px;
+      line-height:1.05;
+      letter-spacing:-0.4px;
+      color: var(--accent);
+      font-weight:800;
+    }
+
+    .cards {
+      display:flex;
+      flex-direction:column;
+      gap:48px;
+      align-items:center; 
+      margin-top:8px;
+      padding-bottom:40px;
+    }
+
+   .card {
+width: 70%;
+min-width: 320px;
+max-width: 860px;
+background: #ffffff;
+border-radius: 28px;
+box-shadow: 0 10px 30px rgba(18, 35, 75, 0.06);
+padding: 0; /* removed inner padding */
+position: relative;
+overflow: hidden; /* keeps bottom rounded area clean */
+}
+
+
+.card .title {
+padding: 26px 36px 10px 36px;
+font-size: 18px;
+font-weight: 600;
+color: #17203a;
+}
+
+
+.card .close {
+position: absolute;
+right: 22px;
+top: 22px;
+font-size: 20px;
+cursor: pointer;
+opacity: 0.6;
+}
+
+
+.email-area {
+background: #ffffff;
+border: none;
+box-shadow: none;
+min-height: 110px;
+padding: 0 36px 20px 36px;
+resize: none;
+font-size: 15px;
+}
+
+
+/* bottom feedback area */
+.feedback-box {
+background: #edd394; /* beige gold */
+padding: 22px 36px;
+font-size: 17px;
+color: #1c1c1c;
+border-bottom-left-radius: 28px;
+border-bottom-right-radius: 28px;
+}
+
+
+.feedback-box i {
+margin-right: 10px;
+}
+  
+  
+   
+
+    .pill {
+      width:64px;
+      height:36px;
+      border-radius:999px;
+      border:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:16px;
+      cursor:pointer;
+      box-shadow: 0 4px 10px rgba(12,30,70,0.08);
+    }
+
+    .pill.no { background: var(--pill-red); }
+    .pill.yes{ background: var(--pill-green); }
+
+    .submit-wrap{
+      display:flex;
+      justify-content:center;
+      margin-top:36px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(90deg,#4b37f2,#5d46ff);
+      color:white;
+      padding:14px 28px;
+      border-radius:28px;
+      border:none;
+      font-weight:700;
+      box-shadow: 0 10px 30px rgba(91,63,255,0.16);
+      cursor:pointer;
+    }
+
+    @media (max-width:1000px){
+      .card { width: 92%; padding:20px; border-radius:20px; }
+      header h1 { font-size:36px; }
+      .decor { display:none; }
+    }
+
+    @media (max-width:520px){
+      header h1 { font-size:28px; }
+      .pill{ width:56px; height:34px; }
+    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f6ff; 
+  color: #001246;
+}
+
+.container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.navbar {
+  background: #e4ebfb;  
+  padding: 18px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.menu {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #001246;
+  font-weight: 600;
+}
+
+.btn-signin {
+  background: linear-gradient(90deg, #5d46ff, #7347ff);
+  color: white !important;
+  padding: 9px 22px;
+  border-radius: 30px;
+}
+
+  </style>
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-content">
+    <div class="logo">CyberSense</div>
+
+    <nav class="menu">
+      <a href="#">Spot the Phish</a>
+      <a href="#">Results</a>
+      <a href="#">contact us</a>
+      <a href="#">Dashboard ▼</a>
+      <a href="#" class="btn-signin">Sign in</a>
+    </nav>
+  </div>
+</header>
+
+  <div class="page">
+    <header>
+      <h1>Your Results & Feedback!</h1>
+    </header>
+
+
+    <main class="cards">
+<div class="card">
+<div class="close"><i class="fa-solid fa-xmark"></i></div>
+
+
+<div class="title">Evaluate this email:</div>
+
+
+<textarea class="email-area" placeholder=""></textarea>
+
+
+<div class="feedback-box">
+You're getting better at spotting threats!
+</div>
+</div>
+
+
+<div class="card" style="margin-top:40px;">
+<div class="close"><i class="fa-solid fa-xmark"></i></div>
+
+
+<div class="title">Evaluate this email:</div>
+
+
+<textarea class="email-area" placeholder=""></textarea>
+
+
+<div class="feedback-box">
+<i class="fa-solid fa-xmark" style="color:#d22; font-size:18px;"></i>
+Incorrect. This message was safe, not phishing.
+</div>
+</div>
+      <div class="submit-wrap">
+        <button class="submit-btn">Submit Evaluation</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

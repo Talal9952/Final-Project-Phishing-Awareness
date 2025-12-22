@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Evaluate</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --bg:#f3f7ff;
+      --card-bg:#ffffff;
+      --accent:#001246;
+      --muted:#5b6b89;
+      --pill-red:#9f3f3f;
+      --pill-green:#4f8350;
+      --shadow: 0 10px 30px rgba(18,35,75,0.06);
+    }
+
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--accent);
+      background: linear-gradient(180deg, #f6f9ff 0%, #eef4ff 100%);
+      min-height:100vh;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .page {
+      max-width:1200px;
+      margin: 40px auto;
+      padding: 40px 32px;
+      position:relative;
+      box-sizing:border-box;
+    }
+
+    .decor {
+      position: absolute;
+      right: 0;
+      top: 10%;
+      width: 420px;
+      opacity: 0.08;
+      pointer-events:none;
+    }
+
+    header h1{
+      margin: 0 0 30px 0;
+      font-size: 44px;
+      line-height:1.05;
+      letter-spacing:-0.4px;
+      color: var(--accent);
+      font-weight:800;
+    }
+
+    .cards {
+      display:flex;
+      flex-direction:column;
+      gap:48px;
+      align-items:center; 
+      margin-top:8px;
+      padding-bottom:40px;
+    }
+
+    .card {
+      width: 70%;
+      min-width:320px;
+      max-width:860px;
+      background: var(--card-bg);
+      border-radius:28px;
+      box-shadow: var(--shadow);
+      padding: 26px 36px 28px 36px;
+      position:relative;
+      box-sizing:border-box;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .card .close {
+      position:absolute;
+      right:18px;
+      top:16px;
+      width:26px;
+      height:26px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#222;
+      font-size:18px;
+      opacity:0.85;
+      cursor:pointer;
+    }
+
+    .card .title {
+      font-size:18px;
+      font-weight:600;
+      color:#17203a;
+    }
+
+    .card .email-area {
+      background: #fff;
+      border-radius:12px;
+      border: 1px solid rgba(7,18,38,0.02);
+      min-height:120px;
+      padding:18px;
+      box-sizing:border-box;
+      box-shadow: 0 4px 10px rgba(12,30,70,0.03) inset;
+      resize:vertical;
+      font-size:15px;
+      color:#223;
+    }
+
+    .card .actions {
+      display:flex;
+      justify-content:flex-end;
+      gap:14px;
+      align-items:center;
+      margin-top:6px;
+    }
+
+    .pill {
+      width:64px;
+      height:36px;
+      border-radius:999px;
+      border:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:16px;
+      cursor:pointer;
+      box-shadow: 0 4px 10px rgba(12,30,70,0.08);
+    }
+
+    .pill.no { background: var(--pill-red); }
+    .pill.yes{ background: var(--pill-green); }
+
+    .submit-wrap{
+      display:flex;
+      justify-content:center;
+      margin-top:36px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(90deg,#4b37f2,#5d46ff);
+      color:white;
+      padding:14px 28px;
+      border-radius:28px;
+      border:none;
+      font-weight:700;
+      box-shadow: 0 10px 30px rgba(91,63,255,0.16);
+      cursor:pointer;
+    }
+
+    @media (max-width:1000px){
+      .card { width: 92%; padding:20px; border-radius:20px; }
+      header h1 { font-size:36px; }
+      .decor { display:none; }
+    }
+
+    @media (max-width:520px){
+      header h1 { font-size:28px; }
+      .pill{ width:56px; height:34px; }
+    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f6ff; 
+  color: #001246;
+}
+
+.container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.navbar {
+  background: #e4ebfb;  
+  padding: 18px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.menu {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #001246;
+  font-weight: 600;
+}
+
+.btn-signin {
+  background: linear-gradient(90deg, #5d46ff, #7347ff);
+  color: white !important;
+  padding: 9px 22px;
+  border-radius: 30px;
+}
+
+  </style>
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-content">
+    <div class="logo">CyberSense</div>
+
+    <nav class="menu">
+      <a href="#">Spot the Phish</a>
+      <a href="#">Results</a>
+      <a href="#">contact us</a>
+      <a href="#">Dashboard ▼</a>
+      <a href="#" class="btn-signin">Sign in</a>
+    </nav>
+  </div>
+</header>
+
+  <div class="page">
+    <header>
+      <h1>Can You Spot the Phish?</h1>
+    </header>
+
+
+    <main class="cards">
+      <!-- Card 1 -->
+      <div class="card" role="group" aria-label="Evaluation card 1">
+        <div class="close" title="Close"><i class="fa-solid fa-xmark"></i></div>
+
+        <div class="title">Evaluate this email:</div>
+
+        <textarea class="email-area" placeholder="Paste the email content or write what you notice..." rows="6"></textarea>
+
+        <div class="actions">
+          <button class="pill no" title="Don't agree (Phish)">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+
+          <button class="pill yes" title="Agree (Safe)">
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" role="group" aria-label="Evaluation card 2">
+        <div class="close" title="Close"><i class="fa-solid fa-xmark"></i></div>
+
+        <div class="title">Evaluate this email:</div>
+
+        <textarea class="email-area" placeholder="Paste the email content or write what you notice..." rows="6"></textarea>
+
+        <div class="actions">
+          <button class="pill no" title="Don't agree (Phish)">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+
+          <button class="pill yes" title="Agree (Safe)">
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="submit-wrap">
+        <button class="submit-btn">Submit Evaluation</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
